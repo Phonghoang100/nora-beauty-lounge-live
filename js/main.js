@@ -80,6 +80,17 @@
     revealed.forEach(function (el) { el.classList.add("in-view"); });
   }
 
+  /* Support subfolder hosting (e.g. GitHub Pages staging environments) */
+  var subfolder = "/Nora-Beauty-Lounge-Staging";
+  if (location.pathname.startsWith(subfolder)) {
+    document.querySelectorAll("a[href^='/']").forEach(function (a) {
+      var href = a.getAttribute("href");
+      if (!href.startsWith(subfolder) && !href.startsWith("//")) {
+        a.setAttribute("href", subfolder + (href === "/" ? "/" : href));
+      }
+    });
+  }
+
   /* Mark current nav item */
   var here = location.pathname.replace(/\/index\.html$/, "/").replace(/\.html$/, "");
   document.querySelectorAll(".nav-list a, .nav-drawer a").forEach(function (a) {
@@ -104,4 +115,16 @@
       form.reset();
     });
   });
+
+  /* Parallax effect for hero */
+  var heroMedia = document.querySelector(".hero__media img");
+  if (heroMedia && window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+    window.addEventListener("scroll", function () {
+      var scrolled = window.pageYOffset;
+      var limit = document.querySelector(".hero").offsetHeight;
+      if (scrolled <= limit) {
+        heroMedia.style.transform = "translateY(" + scrolled * 0.5 + "px) scale(1.1)";
+      }
+    }, { passive: true });
+  }
 })();
