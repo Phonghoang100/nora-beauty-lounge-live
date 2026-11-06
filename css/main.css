@@ -1414,7 +1414,7 @@ legend {
 }
 
 /* Enhanced booking link */
-.site-footer li a[href*="glossgenius"] {
+.site-footer li a[href*="vagaro"] {
   gap: 0.6rem;
   min-height: 0;
   margin-block: 0.3rem 0.5rem;
@@ -1430,23 +1430,23 @@ legend {
   box-shadow: var(--shadow-gold);
   border: 1px solid rgba(212, 175, 55, 0.3);
 }
-.site-footer li a[href*="glossgenius"]::before {
+.site-footer li a[href*="vagaro"]::before {
   display: none;
 }
-.site-footer li a[href*="glossgenius"]::after {
+.site-footer li a[href*="vagaro"]::after {
   content: "→";
   font-size: 0.95rem;
   letter-spacing: 0;
   transition: transform var(--transition);
 }
-.site-footer li a[href*="glossgenius"]:hover,
-.site-footer li a[href*="glossgenius"]:focus-visible {
+.site-footer li a[href*="vagaro"]:hover,
+.site-footer li a[href*="vagaro"]:focus-visible {
   color: var(--espresso);
   transform: translateY(-2px);
   box-shadow: var(--shadow-elevated), 0 0 30px rgba(212, 175, 55, 0.6);
   text-shadow: none;
 }
-.site-footer li a[href*="glossgenius"]:hover::after {
+.site-footer li a[href*="vagaro"]:hover::after {
   transform: translateX(4px);
 }
 
