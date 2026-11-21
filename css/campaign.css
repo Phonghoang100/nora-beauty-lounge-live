@@ -1,0 +1,117 @@
+/* Nora Beauty Lounge: campaign page components
+   Built on the tokens in main.css (Design System v2.0). No new colors or fonts. */
+
+/* ---------- Promo price cards ---------- */
+.promo-grid { display: grid; gap: var(--s-5); }
+@media (min-width: 40em) { .promo-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 70em) { .promo-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.promo-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--s-6) var(--s-5) var(--s-5);
+  background: var(--white);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.promo-card:hover,
+.promo-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+  border-color: var(--champagne);
+}
+.promo-card--featured {
+  background: var(--espresso);
+  color: var(--porcelain);
+  border-color: var(--champagne);
+  box-shadow: var(--shadow-gold);
+}
+.promo-card--featured h3,
+.promo-card--featured .promo-card__price { color: var(--ivory); }
+.promo-card--featured .promo-card__desc,
+.promo-card--featured .promo-card__was { color: var(--blush); }
+
+.promo-card__badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.3rem 1rem;
+  background: var(--gradient-gold);
+  color: var(--espresso);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: var(--radius-pill);
+}
+.promo-card h3 { font-size: 1.6rem; margin-bottom: var(--s-2); }
+.promo-card__desc { font-size: 0.95rem; color: var(--stone); min-height: 4.5em; }
+.promo-card__was {
+  margin-top: var(--s-4);
+  font-size: 0.95rem;
+  color: var(--stone);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+.promo-card__price {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 3.75rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--espresso);
+}
+.promo-card__price sup { font-size: 0.45em; vertical-align: 0.7em; margin-right: 0.08em; }
+.promo-card__save {
+  display: inline-block;
+  align-self: center;
+  margin: var(--s-3) 0 var(--s-5);
+  padding: 0.2rem 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--champagne-deep);
+  border: 1px solid var(--champagne);
+  border-radius: var(--radius-pill);
+}
+.promo-card--featured .promo-card__save { color: var(--champagne-light); }
+.promo-card .btn { margin-top: auto; width: 100%; justify-content: center; }
+
+/* ---------- Brand pillars ---------- */
+.pillar { padding: var(--s-6); border-top: 2px solid var(--champagne); }
+.pillar__num {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: var(--tracking-label);
+  color: var(--champagne-deep);
+}
+.pillar h3 { margin-block: var(--s-3); }
+
+/* ---------- Numbered steps ---------- */
+.steps { display: grid; gap: var(--s-5); counter-reset: step; }
+@media (min-width: 55em) { .steps { grid-template-columns: repeat(3, 1fr); } }
+.steps li { list-style: none; counter-increment: step; padding: var(--s-5); background: var(--ivory); border-radius: var(--radius-lg); }
+.steps li::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: var(--s-3);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--espresso);
+  background: var(--gradient-gold);
+  border-radius: 50%;
+}
+.steps h3 { font-size: 1.35rem; margin-bottom: var(--s-2); }
+
+@media (prefers-reduced-motion: reduce) {
+  .promo-card, .promo-card:hover, .promo-card:focus-within { transition: none; transform: none; }
+}
