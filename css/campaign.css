@@ -1,6 +1,24 @@
 /* Nora Beauty Lounge: campaign page components
    Built on the tokens in main.css (Design System v2.0). No new colors or fonts. */
 
+:root { --gold-text: #7F6410; } /* gold for small text: 4.8:1+ on white, ivory and porcelain */
+
+/* Fixed header must never cover anchor jumps or keyboard focus (WCAG 2.2 Focus Not Obscured) */
+html { scroll-padding-top: 6rem; }
+
+/* Small gold eyebrow labels on light sections: lift contrast from 2.7:1 to 5:1 */
+.section:not(.section--dark) .eyebrow { color: var(--gold-text); }
+
+/* Legibility scrim behind hero copy on photo backgrounds */
+.hero--campaign::after {
+  background:
+    linear-gradient(90deg, rgba(26, 22, 20, 0.72) 0%, rgba(26, 22, 20, 0.45) 45%, rgba(26, 22, 20, 0) 75%),
+    radial-gradient(circle at 50% 50%, transparent 0%, rgba(26, 22, 20, 0.3) 30%, rgba(26, 22, 20, 0.75) 100%);
+}
+
+/* Never split a phone number across lines */
+a[href^="tel:"] { white-space: nowrap; }
+
 /* ---------- Promo price cards ---------- */
 .promo-grid { display: grid; gap: var(--s-5); }
 @media (min-width: 40em) { .promo-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -76,7 +94,7 @@
   font-weight: 500;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: var(--champagne-deep);
+  color: var(--gold-text);
   border: 1px solid var(--champagne);
   border-radius: var(--radius-pill);
 }
@@ -89,7 +107,7 @@
   font-family: var(--font-display);
   font-size: 1.1rem;
   letter-spacing: var(--tracking-label);
-  color: var(--champagne-deep);
+  color: var(--gold-text);
 }
 .pillar h3 { margin-block: var(--s-3); }
 
